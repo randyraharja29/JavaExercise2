@@ -1,13 +1,19 @@
 package org.example;
-import java.awt.*;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
 interface Shape{ //one of implement Polymorphism
     void draw (int height, int side);
+
+    void draw(int height);
 }
 
-class drawTriangle implements Shape{
+class drawTriangleSS implements Shape{
+    @Override
+    public void draw(int height, int side) {
+
+    }
+
     @Override
     public void draw(int height) {
         for(int i =1;i<=height;i++) {
@@ -30,6 +36,11 @@ class drawRectangle implements Shape{
                 System.out.println();
             }
         }
+
+    @Override
+    public void draw(int height) {
+
+    }
 }
 
 
@@ -71,7 +82,8 @@ public class ShapeDrawerPolyMorph {
                 case 2:
                     System.out.println("Masukkan Panjang Sisi Persegi");
                     int height2 = scanner.nextInt();
-                    new drawRectangle().draw(panjang,lebar); //Fungsi untuk menggambarkan segitiga
+                    int side = scanner.nextInt();
+                    new drawRectangle().draw(height2, side);//Fungsi untuk menggambarkan segitiga
                     break;
                 case 3:
                     System.exit(0);
